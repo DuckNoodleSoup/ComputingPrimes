@@ -25,10 +25,9 @@ public class PrimeFinderThread implements Runnable {
     }
     
     public void run(){  
-
-        /*
         // Use SoE to mark multiples of smallPrimes as false (Composite)
         for(int i=0; i<smallPrimes.length; i=i+1){
+            
             if(smallPrimes[i]){
                 // Mark rangeLow to rangeHigh multiples of i
                 
@@ -49,16 +48,25 @@ public class PrimeFinderThread implements Runnable {
 
                 // Mark all multiples of i until rangeMax as false
                 while (true) {
-                    primesChunk[j-rangeLow] = false;
-                    if (j >= rangeHigh - i) {
+                    if ((counter-1) >= (primesChunk.length - i)) {
                         break;
                     }
+                    primesChunk[counter] = false;
                     counter += i;
                 } 
             }
         }  
 
-        */
+        if(id==0){
+            primesChunk[0] = false;
+            primesChunk[1] = false;
+        }
+
+        if(id==0){
+            for(int i=0; i<smallPrimes.length; i=i+1){
+                primesChunk[i] = smallPrimes[i];
+            }
+        }
 
         // After all is done, set done[id] as true, so that 
         // PrimePrinterThread can get to work

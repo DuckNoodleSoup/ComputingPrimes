@@ -41,7 +41,7 @@ public class ParallelPrimes {
 		/* PARALLEL IMPLEMENTATION*/
 
 		// 1. Compute smallPrimes[]
-		boolean[] smallPrimes = getIsPrime(MAX);
+		boolean[] smallPrimes = getIsPrime(ROOT_MAX);
 
 		// 2. Writing primes[]
 		int[] primes = new int[MAX];
@@ -58,7 +58,7 @@ public class ParallelPrimes {
 		// Create and execute printer thread
 		Thread w = new Thread(new PrimePrinterThread(primes, primesChunks, done, nThreads-1));
 		pool.execute(w);
-		
+
 		// Create and execute finder threads
 		for(int i = 0; i<(nThreads-1); i=i+1){
 			// Create array for chunk, assign it to the array of arrays (primesChunk)

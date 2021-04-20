@@ -19,12 +19,22 @@ public class PrimePrinterThread implements Runnable {
     }
 
     public void run(){
+        int count = 0;
         for(int i=0; i<numThreads; i=i+1){
             while(!done.contains(i)){/*wait and do nothing*/}
 
             System.out.println("Found thread "+ i + " in queue");
             // Once the thread finishes the chunk, write its section in 
-            // the 2D array to the 
+            // the 2D array to the main array
+            int chunkLength = primesChunks[0].length;
+            for (int j = 0; j < chunkLength; ++j) {
+                if (primesChunks[i][j]) {
+                    //System.out.println("From thread "+i+" Marked "+j+" as Prime");
+                    primes[count] = j;
+                    ++count;
+                }
+            }
+            
         }
     }
 }
