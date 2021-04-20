@@ -39,7 +39,6 @@ public class PrimeFinderThread implements Runnable {
                 while(!found){
                     if(j%i==0){
                         found = true;
-                        break;
                     }else{
                         j=j+1;
                         counter = counter+1;
@@ -48,7 +47,7 @@ public class PrimeFinderThread implements Runnable {
 
                 // Mark all multiples of i until rangeMax as false
                 while (true) {
-                    if ((counter-1) >= (primesChunk.length - i)) {
+                    if ((counter) >= (primesChunk.length)) {
                         break;
                     }
                     primesChunk[counter] = false;
@@ -57,11 +56,7 @@ public class PrimeFinderThread implements Runnable {
             }
         }  
 
-        if(id==0){
-            primesChunk[0] = false;
-            primesChunk[1] = false;
-        }
-
+        // If its Thread 0, need to copy smallPrimes to the chunk
         if(id==0){
             for(int i=0; i<smallPrimes.length; i=i+1){
                 primesChunk[i] = smallPrimes[i];
