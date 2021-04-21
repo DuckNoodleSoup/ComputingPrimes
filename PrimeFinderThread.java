@@ -66,6 +66,8 @@ public class PrimeFinderThread implements Runnable {
         // After all is done, set done[id] as true, so that 
         // PrimePrinterThread can get to work
         done.add(id);
+        
+        //Test  
         System.out.println("Thread "+ id +" finished");
     }
 }

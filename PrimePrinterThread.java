@@ -3,9 +3,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Random;
 import java.lang.StringBuilder;
-import java.util.Date;
 import java.io.BufferedWriter;
 
 
@@ -27,8 +25,8 @@ public class PrimePrinterThread implements Runnable {
     }
 
     public void run(){
-
-        StringBuilder builder = new StringBuilder();
+        //TEST
+        //StringBuilder builder = new StringBuilder();
 
         int count = 0;
         int current = 0;
@@ -41,11 +39,8 @@ public class PrimePrinterThread implements Runnable {
             int chunkLength = primesChunks[0].length;
             for (int j = 0; j < chunkLength; ++j) {
                 if (primesChunks[i][j]) {
-                    
                     //TEST
-                    builder.append("Thread "+i+" found "+current+" \n");
-                    //TEST
-
+                    //builder.append("Thread "+i+" found "+current+" \n");
                     primes[count] = current;
                     count = count+1;
                 }
@@ -54,11 +49,11 @@ public class PrimePrinterThread implements Runnable {
         }
 
         //TEST
+        /*
         try(BufferedWriter writer = new BufferedWriter(new FileWriter("TestResults.txt"))) {
             writer.write(builder.toString());
         } catch (IOException e){
             System.err.format("IOException: %s%n", e);
-        }
-        //TEST
-    }
+        }*/
+    } 
 }

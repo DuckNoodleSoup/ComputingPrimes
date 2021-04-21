@@ -7,7 +7,7 @@ public class ParallelPrimes {
 	
 
     // the maximum prime number considered
-    public static final int MAX = 1_000_000;
+    public static final int MAX = 245_000_000;
     //public static final int MAX = Integer.MAX_VALUE - 2;
     
     public static final int ROOT_MAX = (int) Math.sqrt(MAX);
@@ -74,8 +74,6 @@ public class ParallelPrimes {
 			low = low+chunk;
 			high = high+chunk;
 		}
-		
-		
 
 		/* END PARALLEL IMPLEMENTATION*/
 	
